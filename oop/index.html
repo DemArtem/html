@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Shapes</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css
+">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/4.2.8/css/tooltipster.bundle.css
+" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/4.2.8/js/tooltipster.bundle.min.js
+">
+
+</script>
+</head>
+
+<body>
+    <div id="container" class="w3-container w3-card w3-margin w3-padding-16">
+        <svg width="500" height="500" viewBox="0 0 500 500" id="svg">
+        </svg>
+        <button class="w3-btn w3-blue" id="generate">Generate</button>
+        <button class="w3-btn w3-blue" id="clear">Clear</button>
+    </div>
+</body>
+<script>
+    $("#clear").click(clear);
+$("#generate").click(generate);
+	
+function clear(){
+	$("#svg").empty();
+}
+
+var svg = document.getElementById('svg');	
+		var xmlns = "http://www.w3.org/2000/svg";
+
+function remove(event){
+console.log(event);
+ if( !event ) event = window.event;
+       var shape = event.target || event.srcElement;
+       var parent = shape.parentNode;
+       parent.removeChild(shape);
+} 
+class Shape{
+    constructor(x,y,color){
+        this.type = null;
+        this.x = x||0;
+        this.y = y||0;
+        this.color = color?color:'gray';
+    }
+}
+
+</script>
+</html> 

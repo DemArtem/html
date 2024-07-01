@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="
+https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css
+">    
+    <script src="
+https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="
+https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js
+"></script>
+    
+</head>
+<body>
+    <div class="w3-bar w3-blue w3-margin  w3-col m8 l6">
+        <a href="javascript:line();" class="w3-bar-item w3-button">Линейный график</a>
+        <a href="javascript:bar();" class="w3-bar-item w3-button">Столбчатый график</a>
+        <a href="javascript:pie();" class="w3-bar-item w3-button">Круговая диаграмма</a>  
+      </div>
+      <div class="w3-container w3-card w3-margin w3-padding-16" >
+      <div class="w3-third">
+      <form class="w3-container">
+      <label class="w3-text-blue"><b>a</b></label>
+      <input class="w3-input w3-border" type="text" id = "a">
+      <label class="w3-text-blue"><b>b</b></label>
+      <input class="w3-input w3-border" type="text" id = "b">
+      </form>
+      </div>
+      </div>
+      
+      <div class="w3-container w3-card w3-margin ct-chart">
+        <script>
+            function line() {
+                let a = parseFloat($("#a").val());
+                let b = parseFloat($("#b").val());
+                let valuesX = [];
+                let valuesY = [];
+                let labelsX = [];
+                let x = 0;
+                while (x < 2) {
+                    let y = Math.sqrt(x * a) / (x + 1) + b;
+                    valuesX.push(x);
+                    valuesY.push(y);
+                    labelsX.push(x.toPrecision(2).toString());
+                    x += .2;
+                }
+                let data = {
+                    labels: labelsX,
+                    series: [valuesY]
+                }
+                let chart = new Chartist.Line('.ct-chart', data,
+                    {
+                        width: '1000px',
+                        height: '600px'
+                    })
+    
+            }
+            function bar() {
+                let a = parseFloat($("#a").val());
+                let b = parseFloat($("#b").val());
+                let valuesX = [];
+                let valuesY = [];
+                let labelsX = [];
+                let x = 0;
+                while (x < 2) {
+                    let y = Math.sqrt(x * a) / (x + 1) + b;
+                    valuesX.push(x);
+                    valuesY.push(y);
+                    labelsX.push(x.toPrecision(2).toString());
+                    x += .2;
+                }
+                let data = {
+                    labels: labelsX,
+                    series: [valuesY]
+                }
+                let chart = new Chartist.Bar('.ct-chart', data,
+                    {
+                        width: '1000px',
+                        height: '600px'
+                    })
+    
+            }
+
+            function pie() {
+                let data ={
+                    series:[5,3,4,3]
+                }
+
+                let chart = new Chartist.Pie('.ct-chart', data,
+                    {
+                        width: '1000px',
+                        height: '600px'
+                    })
+    
+            }
+        </script> 
+      
+      </div>
+    
+</body>
+</html> 

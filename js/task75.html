@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form action="#" class="main_form">
+        <label for="n1">Input count of elements 1</label>
+        <input type="text" class="main_input" id="n1" placeholder="">
+        <label for="n2">Input count of elements 2</label>
+        <input type="text" class="main_input" id="n2" placeholder="">
+        <button class="main_button" onclick="ok1()">OK</button>
+        <div id="arr1">
+        </div>
+        <div id="arr2">
+        </div>
+        <button class="main_button" onclick="ok2()">OK</button>
+        <div id="result">
+        </div>
+    </form>
+    <script>
+        let n1 = 0;
+        let n2 = 0;
+        function ok1() {
+            n1 = document.querySelector('#n1').value;
+            n2 = document.querySelector('#n2').value;
+            for (let i = 0; i < n1; i++) {
+                let inp = document.createElement('input');
+                inp.classList.add('main_input');
+                document.querySelector('#arr1').appendChild(inp);
+            }
+            for (let i = 0; i < n2; i++) {
+                let inp = document.createElement('input');
+                inp.classList.add('main_input');
+                document.querySelector('#arr2').appendChild(inp);
+            }
+        }
+
+        function ok2() {
+            let array1 = [];
+            let array2 = [];
+            let elements1 = document.querySelectorAll("#arr1 input")
+            for (let i = 0; i < n1; i++)
+                array1.push(elements1[i].value * 1);
+            let elements2 = document.querySelectorAll("#arr2 input")
+            for (let i = 0; i < n1; i++)
+                array2.push(elements2[i].value * 1);
+            let array3 = getUniqueAfterMerge(array1, array2);
+            let n = array3.length;
+
+            for (let i = 0; i < n; i++) {
+                let inp = document.createElement('input');
+                inp.classList.add('main_input');
+                document.querySelector('#result').appendChild(inp);
+            }
+            let elements = document.querySelectorAll("#result input")
+            for (let i = 0; i < n; i++) {
+                elements[i].value = array3[i];
+            }
+        }
+
+        function getUniqueAfterMerge(arr1, arr2) {
+
+            // merge two arrays
+            let arr = arr1.concat(arr2);
+            let uniqueArr = [];
+
+            // loop through array
+            for (let i of arr) {
+                if (uniqueArr.indexOf(i) === -1) {
+                    uniqueArr.push(i);
+                }
+            }
+            
+//console.log
+(uniqueArr);
+            return uniqueArr;
+        }
+
+        //const array1 = [1, 2, 3];
+        //const array2 = [2, 3, 5]
+
+        // calling the function
+        // passing array argument
+        //getUniqueAfterMerge(array1, array2);
+    </script>
+</body> 
+</html>

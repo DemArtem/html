@@ -1,0 +1,68 @@
+<!--Простейшая разметка-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            background-color: antiquewhite;
+            display: table;
+        }
+
+        .left {
+            background-color: rgb(182, 117, 32);
+            width: 20vw;
+            height: 100vh;
+            text-align: center;
+            display: table-cell;
+        }
+
+        .right {
+            background-color: rgb(32, 182, 125);
+            width: 80vw;
+            height: 100vh;
+            text-align: center;
+            display: table-cell;
+        }
+
+        .top {
+            background-color: rgb(81, 26, 162);
+            height: 20vh;
+            text-align: center;
+        }
+
+        .bottom {
+            background-color: rgb(32, 182, 125);
+            height: 80vh;
+            text-align: center;
+        }
+
+        p {
+            margin: auto;
+            position: relative;
+            top: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="top">
+            <p>Top</p>
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <p>Left</p>
+            </div>
+            <div class="right">
+                <p>Right</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> 

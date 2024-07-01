@@ -1,0 +1,42 @@
+.jumbotron{
+  background-color: #7b6cc7;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  border: 2px solid rgb(5, 245, 37);
+}
+
+#playfield{
+  border: 5px solid yellow;
+  border-radius: 10px;
+  color: aquamarine;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  max-width: 200px;
+}
+
+.btn-primary{
+  grid-column-start: 1;
+}
+
+.container{
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+#score{
+  color: aquamarine;
+  border: 5px solid yellow;
+  border-radius: 10px;
+}
+
+#die, h1, #gl{
+  align-self: center;
+}
+
+#playfield>img{
+  width: 50px;
+  height: auto;
+} 

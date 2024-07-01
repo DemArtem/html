@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+    </style> 
+</head>
+<body class="text-center">
+    <main class="form-signin">
+        <form>          
+          <h1 class="h3 mb-3 fw-normal">What's your name?</h1>
+      
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="name" placeholder="name">
+            <label for="name">Name</label>
+          </div>         
+          <button class="w-100 btn btn-lg btn-primary" type="button" id="button">OK</button>          
+          <div class="alert alert-primary mt-3 visible" role="alert" id="hello">
+               
+        </div>
+        </form>
+      </main>
+      <script>
+            $('#button').on("click", function(){
+            $('#hello').text('Hello '+$('name').val())
+            $('#hello').toggleClass('invisible')
+             }) 
+      </script>
+</body> 
+</html>

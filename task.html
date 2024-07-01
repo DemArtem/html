@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--1. Добыть рисунки Алексей-->
+    <!--2. 5 кубиков бросаются случайно. Написать функцию заполнения массива целых чисел Артем-->
+    <!--3. Вывести картинки по заданному массиву Максим-->
+    <!--4. Создать пользовательский интерфейс Елизавета-->
+    <!--5. Стилизировать пользовательский интерфейс с помощью bootstrap Виктор-->
+    <!--6(*2). Функция для определения счета по заданному массиву Дмитрий-->
+    <!--7(*2). При нажатии на кнопку выводится счет в input Руслан-->
+    <!--8(*2). Добавить кнопку "Бросить 10 раз" и написать реализацию-->
+    <!--9. Написать тест по функции для определения счета-->
+    <div class="container">
+        <h1>“Кости 5 кубиков”</h1>
+        <a id="die" href="https://www.yapfiles.ru/show/2369640/_200a.gif.html" target="_blank"><img
+                src="https://www.yapfiles.ru/files/2369640/_200a.gif" width="100" height="102" border="0"
+                alt="Кубик игральный" /></a>
+        <p>
+            Это классическая игра, которая имеет свои уникальные правила и необычные комбинации. В этой игре
+            используются пять игровых кубиков, каждый из которых имеет шесть граней с числами от одного до шести.
+            Целью игры является набрать наивысшую возможную комбинацию из пяти кубиков. Каждый игрок по очереди бросает
+            кубики и получает очки в зависимости от комбинации, которую он получает. За каждую комбинацию игроку
+            начисляются определенные очки, и побеждает тот, кто наберет наибольшее количество очков.
+            Существует несколько вариантов правил игры в “Кости 5 кубиков”, которые могут различаться в зависимости от
+            предпочтений игроков. Например, одни игроки предпочитают играть без использования блокировки кубиков, тогда
+            как другие считают блокировку обязательной.
+            В этой статье мы рассмотрим основные правила игры в “Кости 5 кубиков” и различные варианты комбинаций,
+            которые приносят очки.
+        </p>
+        <div class="jumbotron text-center">
+            <div class="scoreField" id="score">ScoreField</div>
+            <div class="container" id="playfield">
+
+            </div>
+            <div class="btn btn-primary" id="start">Бросай!</div>
+        </div>
+        <p id="gl">Удачи, мой азартный друг!</p>
+    </div>
+
+    <script>
+
+        let start = document.getElementById('start');
+        start.addEventListener('click', init)
+        init();
+
+        function dice() {
+
+            let results = [];
+            for (let i = 0; i < 5; i++) {
+                let result = Math.floor(Math.random() * 6) + 1;
+                results.push(result);
+            }
+            return results;
+        }
+        //let diceResult = dice();
+
+        //console.log(diceResult);
+
+        function fill(dices) {
+            let container = document.getElementById("playfield");
+            for (let i = 0; i < dices.length; i++) {
+                var image = document.createElement("img");
+                image.setAttribute("src", `../img/dice-${dices[i]}.svg`);
+                container.appendChild(image);
+            }
+        }
+
+        function init() {
+            let dices = dice();
+            let container = document.getElementById("playfield");
+            container.innerHTML = '';
+            fill(dices);
+            score = check(dices);
+            let input = document.getElementById('score');
+            input.innerHTML = score;
+        }
+
+            function check(arrays) {
+            let temp = [];
+            for (let i = 1; i < 7; i++) {
+                count = 0;
+                for (let j = 0; j < arrays.length; j++) {
+                    if (i == arrays[j])
+                        count++;
+                }
+                temp.push([i, count]);
+            }
+            console.log(temp)
+            let sum = 0;
+            for (let i = 0; i < temp.length; i++) {
+                if (temp[i][1] >= 3 && temp[i][0] == 1) {
+                    sum += 1000 + (temp[i][1] - 3) * 100;
+                    // console.log(temp[i][0]+'  '+sum)
+                } else if (temp[i][0] == 1) {
+                    sum += temp[i][1] * 100;
+                    // console.log(temp[i][0]+'  '+sum)
+                }
+                if (temp[i][1] >= 3 && temp[i][0] == 2) {
+                    sum += 200;
+                    // console.log(temp[i][0]+'  '+sum)
+                }
+                if (temp[i][1] >= 3 && temp[i][0] == 3) {
+                    sum += 300;
+                    // console.log(temp[i][0]+'  '+sum)
+                }
+                if (temp[i][1] >= 3 && temp[i][0] == 4) {
+                    sum += 400;
+
+
+                    //console.log
+
+                    (temp[i][0] + '  ' + sum)
+                }
+                if (temp[i][1] >= 3 && temp[i][0] == 5) {
+                    sum += 500 + (temp[i][1] - 3) * 50;
+                    // console.log(temp[i][0]+'  '+sum)
+                } else if (temp[i][0] == 5) {
+                    sum += temp[i][1] * 50;
+                    // console.log(temp[i][0]+'  '+sum)
+                }
+                if (temp[i][1] >= 3 && temp[i][0] == 6) {
+                    sum += 600;
+                    // console.log(temp[i][0]+'  '+sum)
+                }
+            }
+            console.log(sum)
+            return (sum);
+        } 
+
+        function calcScore(dices) {
+            let counts = new Array(6).fill(0);
+            let score = 0;
+
+            for (let i = 0; i < dices.length; i++)
+                counts[dices[i] - 1]++;
+
+            if (counts[0] > 2) {
+                counts[0] -= 3;
+                score += 1000;
+            }
+            for (let i = 1; i < 6; i++)
+                if (counts[i] > 2) {
+                    counts[i] -= 3;
+                    score += (i + 1) * 100;
+                }
+            score += counts[0] * 100;
+            score += counts[4] * 50;
+            return score;
+        } 
+    </script>
+</body>
+
+</html>

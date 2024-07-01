@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="words.js"></script>
+</head>
+<body>
+    <div id="container" class="w3-container w3-card w3-margin w3-padding-16"> 
+        <h3>Words</h3>
+        <form action="" class="w3-container">
+            <div class="w3-section">
+                <label for="regex">Regular expression</label>
+                <input type="text" class="w3-input" id="regex">
+            </div>
+            <div class="w3-section">
+                <button type="button" class="w3-btn w3-padding w3-teal" id="OK">OK</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        $('#OK').click(function () {
+            let wordsChoose=[];
+           $('#table').remove();
+           for (let i=0; i<words.length; i++){
+            if(words[i].search($('#regex').val())!=-1)
+            wordsChoose.push(words[i]);
+           }
+            let table = $('<table>');
+                table.attr('id', 'table');
+                let tbody=$('<tbody>');
+                    table.append(tbody);
+                    for (let i=1; i<10; i++){
+                        let row = $('<tr>');
+                            for (let j=1; j<10; j++){
+                                let index = (i-1)*9+j-1;
+                                let td = $('<td>').html(wordsChoose[index]);
+                                    if (i%2==0) td.addClass('w3-light-gray');
+                                    row.append(td);
+                            }
+                            table.append(row);
+                    }
+                    table.addClass('w3-table w3-bordered w3-small');
+                $('#container').append(table);
+        }); 
+    </script>
+</body>
+</html>

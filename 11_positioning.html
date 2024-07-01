@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 30%;
+            height: 50px;
+            margin: 5px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .static{
+            position: static;
+            background-color: beige;
+        }
+        .relative{
+            position: relative;
+            background-color: aqua;
+            left: 50px;
+            top: -30px;
+        }
+        .fixed{
+            position: fixed;
+            background-color: blueviolet;
+            bottom: 0;
+            left: 0;
+        }
+        .absolute{
+            position: absolute;
+            background-color: aquamarine;
+            bottom: 0;
+            left: 0;
+        }
+        .sticky{
+            position: sticky;
+            background-color: rgb(23, 139, 19);
+            top: 10px;
+            left: 0;
+        }
+    table{
+        width: 200%;
+        overflow-x: scroll;
+    }
+    td{
+        width: 30%;
+    }
+    </style>
+</head>
+<body>
+    <div class="static">Static div 1</div>
+    <div class="static">Static div 2</div>
+
+    <div class="relative">Relative div 1</div>
+    <div class="relative">Relative div 2</div>
+
+    <div class="fixed">Fixed div 1</div>
+    <div class="absolute">Absolute div 1</div>
+
+    <div class="sticky">Sticky div 1</div>
+
+    <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+    <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+    <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+
+    <table>
+        <tr>
+            <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+        </tr>
+    </table>
+
+</body>
+</html>

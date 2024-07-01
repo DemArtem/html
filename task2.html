@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>    
+	 <link href="https://fonts.googleapis.com/css?family=Oswald:700|Yellowtail" rel="stylesheet"> 
+	
+	  <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+  background: var(--corner);
+  --architect: "Architects Daughter", cursive;
+  --indie: "Indie Flower", cursive;
+  --black: #313131;
+  --blue: #3B98C4;
+  --teal: #79CCAA;
+  --yellow: #F0DA4B;
+  --purple: #BE7AC5;
+  --pink: #D9679B;
+  --gradient: linear-gradient(45deg, hsla(199, 54%, 50%, 1) 0%, hsla(155, 45%, 64%, 1) 19%, hsla(52, 85%, 62%, 1) 47%, hsla(294, 39%, 63%, 1) 82%, hsla(151, 39%, 54%, 1) 100%);
+  --corner: radial-gradient(farthest-corner at 40px 40px, hsla(199, 54%, 50%, 1) 0%, hsla(155, 45%, 64%, 1) 19%, hsla(52, 85%, 62%, 1) 47%, hsla(294, 39%, 63%, 1) 82%, hsla(151, 39%, 54%, 1) 100%);
+  --radial: radial-gradient(ellipse at top, #F0DA4B, #3B98C4, #79CCAA, transparent), radial-gradient(ellipse at bottom, #D9679B, #BE7AC5, transparent);
+}
+
+.postcardfront {
+  padding: 3rem;
+  height: 350px;
+  width: 550px;
+  border-radius: 15px;
+  background-color: var(--black);
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='16' viewBox='0 0 12 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 .99C4 .445 4.444 0 5 0c.552 0 1 .45 1 .99v4.02C6 5.555 5.556 6 5 6c-.552 0-1-.45-1-.99V.99zm6 8c0-.546.444-.99 1-.99.552 0 1 .45 1 .99v4.02c0 .546-.444.99-1 .99-.552 0-1-.45-1-.99V8.99z' fill='%23dfdfdf' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.fronttext {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: center;
+  text-align: center;
+  margin-top: -6rem;
+  font-size: 2rem;
+  color: #ccc;
+  font-family: var(--architect);
+  line-height: 2rem;
+  text-transform: uppercase;
+}
+
+.fronttext span {
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.rainbow {
+  margin: 0 auto;
+  margin-top: 150px;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 0 0 10px #be7ac5, 0 0 0 20px #9d64ff, 0 0 0 30px #2c7bab, 0 0 0 40px #79ccaa, 0 0 0 50px #f0da4b, 0 0 0 60px #f0904b, 0 0 0 70px #d9679b;
+  border-radius: 100px;
+  position: absolute;
+  bottom: -150px;
+  left: 45%;
+  transform: translateX(-50%);
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.postcardwrap {
+  perspective: 1000px;
+  background-color: transparent;
+  height: 350px;
+  width: 550px;
+}
+
+.postcardin {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.postcardback {
+  background: var(--black);
+  transform: rotateY(-180deg);
+  padding: 0.5rem;
+  height: 350px;
+  width: 550px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.postbackborder {
+  background: #d9679b;
+  background: linear-gradient(45deg, #d9679b 0%, #f0904b 22%, #f0da4b 37%, #79ccaa 53%, #2c7bab 71%, #9d64ff 88%, #be7ac5 100%);
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  padding: 0.5rem;
+}
+
+.postbackin {
+  background: #FAF9F6;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.message {
+  align-self: center;
+  padding: 1rem 3rem 0 2rem;
+  text-align: left;
+  font-family: var(--indie);
+  color: var(--black);
+  border-right: 1px solid var(--black);
+}
+
+.address {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.7fr 1fr;
+  padding: 1rem;
+}
+
+.stamp {
+  height: 70px;
+  width: 70px;
+  background-color: #ccc;
+  background-image: radial-gradient(#fff 50%, transparent 50%);
+  background-position: -5px -5px;
+  background-repeat: repeat;
+  background-size: 10px 10px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+  justify-self: end;
+  /* Spacing */
+  padding: 5px;
+}
+
+.stampin {
+  height: 100%;
+  width: 100%;
+  padding: 0.4rem;
+  background: var(--gradient);
+  background-size: 200% 150%;
+  background-position: top center;
+  display: grid;
+  align-items: center;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.addresslines {
+  color: var(--black);
+  font-family: var(--indie);
+  padding: 0 0.5rem;
+}
+
+.addresslines span {
+  display: block;
+  border-bottom: 1px solid var(--black);
+  margin-bottom: 1rem;
+}
+
+.postcardfront, .postcardback {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+}
+
+.postcardwrap:hover .postcardin {
+  transform: rotateY(-180deg);
+}
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+<div class="postcardwrap">
+	<div class="postcardin">
+<div class="postcardfront">
+	<div class="fronttext"><span>when<br>it rains<br>look for<br>rainbows</span></div>
+	<div class="rainbow"></div>
+</div>
+		<div class="postcardback">
+			<div class="postbackborder">
+				<div class="postbackin">
+					<div class="message">
+						Dear You,<p>Yes. You. Right there. Reading this.<p>You are wonderful. You are lovely. You are you and I couldn't possibly ask for anything more. I'm so proud of you and happy that you are in the world to make it a better, brighter place.<p>Keep shining.
+					</div>
+					<div class="address">
+						<div class="stamp">
+							<div class="stampin">
+								PRIDE<br>
+								2K21
+							</div>
+						</div>
+						<div class="addresslines">
+							<span>To: You</span>
+							<span>Wherever You Are</span>
+							<span>Love: LeeAnn</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	
+</div>	
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocks</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/colors.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/two.js/0.8.14/two.min.js"></script>
+</head>
+<body>
+    <div class="container" id="container">
+
+    </div>
+    <div class="footer">
+        <a href="#" id="start">Start</a>
+    </div>
+    <script>
+        let a = 50;
+        let rects = [];
+        let countWidth = 6;
+        let countHeight = 4;
+        let lineTotal =countWidth*countHeight; 
+        let width = a * countWidth;
+        let height = a * countHeight;
+
+        let container = document.getElementById('container');
+        two = new Two({ width: width, height: height, fullscreen: false });
+        two.appendTo(container);
+
+        for (let i=0; i<countWidth; i++){
+            for (let j=0; j<countHeight; j++){
+            rects[i+j*countWidth] = two.makeRectangle(i*a+a/2, j*a+a/2,a,a);
+        }    
+        }
+
+        function make(){
+				var control = Math.floor(Math.random() * 4) + 2;
+				for(var i=0; i<lineTotal; i++){					
+					var rand = Math.floor(Math.random() * control) + 0;
+					if(rand==control-1){	
+						rects[i].linewidth = 2;					
+						rects[i].fill = colors['Red']['500']['color'];	
+						rects[i].stroke = "rgba(255,255,255,1)";
+					}
+					else{
+						rects[i].linewidth = 2;					
+						rects[i].fill = colors['Blue']['500']['color'];	
+						rects[i].stroke = "rgba(255,255,255,1)";						
+					}									
+				}				
+				two.update();
+			}
+        make();
+    </script>
+</body> 
+</html>

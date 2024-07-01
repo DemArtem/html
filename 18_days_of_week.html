@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/toggle.css">
+    <style>
+        .container{
+            margin: 0 auto;
+            width: 500px;
+        }
+    </style> 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
+</head>
+<body>
+    <div class="row container">
+        <div class="col-sm-5">
+            <button type="buttom" class="btm-lg btn-toggle" data-toggle="button" aria-pressed="false"
+                autocomplete="of" id="toggle-1">
+                <div class="handle"></div>
+            </button>
+        </div>
+        <div class="col-sm-5">
+            <button type="buttom" class="btm-lg btn-toggle" data-toggle="button" aria-pressed="false"
+                autocomplete="of" id="toggle-2">
+                <div class="handle"></div>
+            </button>
+        </div>
+        <div class="col-sm-5">
+            <button type="buttom" class="btm-lg btn-toggle" data-toggle="button" aria-pressed="false"
+                autocomplete="of" id="toggle-3">
+                <div class="handle"></div>
+            </button>
+        </div>
+        <h4 id="result"></h4>
+        </div>
+        <script>
+            $('.btn-toggle').click(function(){
+                $(this).toggleClass('active')
+            })
+        
+            $('[id*="toggle-"]').click(function(){
+                let number = 0;
+                if ($('#toggle-1').hasClass(':active')) number+=1;
+                if ($('#toggle-2').hasClass(':active')) number+=2;
+                if ($('#toggle-3').hasClass(':active')) number+=4;
+                console.log(number);
+                switch(number){
+        case 0: $('#result').html(''); break;
+        case 1: $('#result').html('Monday'); break;
+        case 2: $('#result').html('Tuesday'); break;
+        case 3: $('#result').html('Wednesday'); break;
+        case 4: $('#result').html('Thursday'); break;
+        case 5: $('#result').html('Friday'); break;
+        case 6: $('#result').html('Saturday'); break;
+        case 7: $('#result').html('Sunday'); break;
+    } 
+            })
+        </script> 
+</body>
+</html>

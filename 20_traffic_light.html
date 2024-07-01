@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
+    <style>
+      *{
+    box-sizing: border-box;
+}
+#traffic{
+
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100px;
+    height: 200px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+#traffic  div {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 100% ;
+    margin: 10px, 10px;
+    opacity: .3;
+}
+.green{
+    background: green;
+}
+.red{
+    background: red;
+}
+.yellow{
+    background: yellow;
+} 
+
+    </style>
+</head>
+<body>
+    <div id="traffic">
+    <div class="green" id="green"></div>
+    <div class="yellow" id="yellow"></div>
+    <div class="red" id="red"></div>
+</div> 
+</body>
+</html>

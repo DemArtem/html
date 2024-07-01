@@ -1,0 +1,79 @@
+<!--Поставить A на место E-->
+<!--Поставить B в позицию (1,2)
+При наведении на Е несколько раз плавно меняется ее фон--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/colors.css">
+    <style>
+        .wrapper{
+            display: grid;
+            grid-template-columns: 1fr 2fr 3fr;
+            width: 400px;
+            grid-gap: 10px;
+        }
+        .box{
+            display: flex;
+            border-radius: 5px;
+            height: 100px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-size: 200%;
+        }
+        .c{
+            animation-name: stretch;
+            animation-duration: 3s;
+        }
+        @keyframes stretch{
+            0%{
+                transform: scaleX(0.5) scaleY(0.5);
+            }
+        }
+        .f{
+            animation-name: increase;
+            animation-duration: 3s;
+        }
+        @keyframes increase{
+            0%{
+                transform: scaleX(0) scaleY(1);
+                translate: -50% 0;
+            }
+        }
+        .a{
+            grid-row: 2;
+            grid-column: 2;
+        }
+        .b{
+            grid-area: 2/1/4/1;
+        }
+        .e:hover{
+            animation-name: background;
+            animation-duration: 1s infinite;
+            animation-iteration-count: 3;
+        }
+        @keyframes background{
+            50%{
+                background-color: black;
+            }
+        }
+        .d:hover{
+            background-color: black;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box a">A</div>
+        <div class="box b">B</div>
+        <div class="box c">C</div>
+        <div class="box d">D</div>
+        <div class="box e">E</div>
+        <div class="box f">F</div>
+    </div>
+</body>
+</html>
