@@ -16,6 +16,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/4.2.8/js/tooltipster.bundle.min.js
 ">
 
+
 </script>
 </head>
 
@@ -52,7 +53,20 @@ class Shape{
         this.y = y||0;
         this.color = color?color:'gray';
     }
+    draw() {
+            var circle = document.createElementNS(xmlns, 'circle');
+            circle.setAttribute("cx", this.x)
+            circle.setAttribute("cy", this.y);
+            circle.setAttribute("r", this.r);
+            circle.setAttribute("fill", this.color);
+            circle.setAttribute("onclick", "remove(event)");
+            circle.setAttribute("class", "tooltip");
+            circle.setAttribute("title", "<p style='color:#F85D00'>Круг</p><p>Радиус:" + this.r + "</p><p>Площадь:" +
+                this.square().toFixed(1) + "</p>");
+            svg.appendChild(circle);
+        } 
 }
+
 
 </script>
 </html> 
