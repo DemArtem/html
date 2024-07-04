@@ -15,9 +15,12 @@
     <script>
         const url = new URL(window.location.href);
         console.log(url);
-        const querySrting = window.location.search;
-        console.log(querySrting);
-
-    </script>
+        const queryString = window.location.search;
+        console.log(queryString);
+        const urlParams = new URLSearchParams(queryString);
+        console.log(urlParams);
+        const a = urlParams.get('a');
+        console.log(a);
+    </script> 
 </body>
 </html>

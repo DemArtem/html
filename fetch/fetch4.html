@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="
+https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--Задание: вывести несколько карточек-->
+    <div class="w3-half">
+        <div class="w3-card-4 test" style="width:92%;max-width:300px;">
+            <img src="" alt="Avatar" style="width:100%;opacity:0.85" id="image">
+            <div class="w3-container">
+                <h4><b id="name">John</b></h4>
+                <p id="phone"></p>
+            </div>
+        </div>
+        <br>
+    </div>
+    <script>
+        var users;
+        getData();
+
+                async function getData() {
+                    users = await fetch("https://api.randomuser.me/?nat=US&result=1")
+                        .then(res => res.json())
+                        .then(json => json.results)                        
+                        .catch(console.error);
+                        fill();
+                    //return user[0];
+                    //console.log(user[0].gender)
+                }
+
+        function fill() {
+            var user = users[0];
+            console.log(users[0]);
+                //console.log('ok');
+            $('#image').attr("src",user.picture.medium);           
+            $('#name').html(`${user.name.title} ${user.name.first} ${user.name.last}`);
+            $('#phone').html(`Phone: ${
+user.phone
+}`);
+        }
+    </script>
+</body>
+
+</html> 
