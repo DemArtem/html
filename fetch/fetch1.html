@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    1. Установка расширения Allow CORS: Access-Control-Allow-Origin в Chrome - не помогло
+Браузеры блокируют не только доступ к локальным файлам, но также к ресурсам cross-origin (с другого домена, чем данная страница)
+Должны совпадать: протокол, домен, порт
+CSRF (Cross-Site Request Forgery)
+XSS (Cross-Site Scripting)
+MITM (Man-in-the-Middle)
+--> 
+    <script>
+        let url = 'https://google.com';
+        fetch(url, {
+            //mode: 'no-cors' //Просто блокирует на стороне клиента все защищенное содержимое
+        })
+            .then(x => console.log(x.text()));
+    </script> 
+</body>
+</html>

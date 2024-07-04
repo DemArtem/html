@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        fetch('http://localhost:5500/fetch/content.html')
+            .then(response => response.text())
+            .then(html => {
+                //console.log(html);
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                document.body.innerHTML = doc.body.innerHTML;
+            }
+            )
+            .catch(error=>console.log('Ошибка', error));
+    </script> 
+</body>
+</html>
