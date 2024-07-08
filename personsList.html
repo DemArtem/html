@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="
+https://code.jquery.com/jquery-3.6.4.min.js
+"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  Persons:
+  <ul id="persons"></ul>
+  <script>
+    let persons = [{"name":"b","surname":null},{"name":"default","surname":null},{"name":"a","surname":null}];
+    let ul = $('#persons');
+    for (let i=0; i<persons.length; i++) {
+        let li = $('<li>').html(persons[i].name);
+        ul.append(li);
+    }
+</script>
+</body>
+
+</html> 
