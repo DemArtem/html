@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Template</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace, sans-serif;
+        }
+
+        header {
+            background-color: #31d7df;
+            color: black;
+            padding: 20px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        nav {
+            background-color: #f3ea3f;
+            color: black;
+            width: 90%;
+            margin: 0 auto;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        footer {
+            background-color: #31d7df;
+            color: black;
+            padding: 20px;
+            animation: zoomIn 1s ease-in;
+            border-top: 10px solid #ffffff;
+        }
+
+        aside {
+            background-color: #cd59cd;
+            color: black;
+            padding: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        article {
+            background-color: #4683b4ee;
+            color: black;
+            padding: 10px;
+            animation: slideInLeft 1.5s ease-out;
+            border-right: 10px solid #ffffff;
+        }
+
+        section {
+            background-color: #f4b540;
+            color: black;
+            padding: 10px;
+            margin-bottom: 20px;
+            animation: zoomIn 1s ease-in;
+        }
+
+        h3 {
+            animation: fadeIn 4s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>header</h3>
+        <nav>
+            <h3>nav</h3>
+        </nav>
+    </header>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <article class="col-md-8">
+                <h3>article</h3>
+                <section>
+                    <h3>section 1</h3>
+                </section>
+                <section>
+                    <h3>section 2</h3>
+                </section>
+                <section>
+                    <h3>section 3</h3>
+                </section>
+            </article>
+
+            <aside class="col-md-4">
+                <h3>aside</h3>
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <h3>footer</h3>
+    </footer>
+    
+</body>
+</html>
