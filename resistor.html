@@ -246,12 +246,39 @@
                         two.add(rect);
                         two.update();
                     } 
+
+                    
+                    let nominal = '';
+                    nominal += elems[0];
+                    nominal += elems[1];
+                    nominal *= 1;
+                    console.log(elems[2])
+
+                    let koef = 1; let j = 0;
+                    for (; j < elems[2]; j++)
+                        koef *= 10;
+                    if (j < 7) nominal *= koef;
+
+                    let tolerance = '';
+                    switch (elems[3]) {
+                        case 1: tolerance = '1%'; break;
+                        case 2: tolerance = '2%'; break;
+                        case 3: tolerance = '0,5%'; break;
+                        case 4: tolerance = '0,25%'; break;
+                        case 5: tolerance = '0,1%'; break;
+                        case 6: tolerance = '0,05%'; break;
+                        case 8: tolerance = '5%'; break;
+                        case 9: tolerance = '10%'; break;
+                    }
+                    if (tolerance != '') tolerance = '&plusmn;' + tolerance;
+
+                    document.getElementById('result').innerHTML = nominal + tolerance; 
                 //console.log(elem)             
             })
 
         });
 
-       
+
 
         console.log(elems)
     }
