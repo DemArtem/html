@@ -225,20 +225,20 @@
 
                 elems[i]=colors.findIndex(c=>c.name==color.name);
 
-                    //Отрисовка полосок
+//Улучшение по локации полос
                     let rect;
                     switch (i) {
                         case 0:
-                            rect = two.makeRectangle(55, 50, 8, 40);
+                            rect = two.makeRectangle(55, 50, 8, 38);
                             break;
                         case 1:
-                            rect = two.makeRectangle(85, 50, 8, 30);
+                            rect = two.makeRectangle(75, 50, 8, 31);
                             break;
                         case 2:
-                            rect = two.makeRectangle(115, 50, 8, 30);
+                            rect = two.makeRectangle(100, 50, 8, 31);
                             break;
                         case 3:
-                            rect = two.makeRectangle(145, 50, 8, 40);
+                            rect = two.makeRectangle(130, 50, 9, 31);
                             break;
                     }
                     if (elems[i] >= 0) {
